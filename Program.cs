@@ -15,7 +15,16 @@ builder.Services.AddDbContext<StudentDBContext>(options => options.UseSqlServer(
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseHttpsRedirection();
+
+app.MapControllers();   // ❗ VERY IMPORTANT
+
+app.Run();   
